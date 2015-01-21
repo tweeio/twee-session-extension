@@ -1,0 +1,38 @@
+{
+    "name": "twee-session-extension",
+    "preferGlobal": false,
+    "version": "0.0.1",
+    "author": "Dmitri Mesin <dmitri.mesin@gmail.com>",
+    "homepage": "https://github.com/mesin/twee-session-extension",
+    "description": "Session Middleware Extension for Twee.io Framework - MVC Framework for Node.js based on Express.js",
+    "license": "MIT",
+    "dependencies": {
+        "express-session": "*",
+        "connect-redis": "*"
+    },
+    "devDependencies": {},
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/mesin/twee-session-extension.git"
+    },
+    "keywords": [
+        "session",
+        "files",
+        "ftp",
+        "twee.io",
+        "framework",
+        "extensions",
+        "modules",
+        "route",
+        "web",
+        "middleware",
+        "mvc",
+        "routes",
+        "rest",
+        "restful",
+        "api"
+    ],
+    "bugs": {
+        "url": "https://github.com/mesin/twee-session-extension/issues"
+    }
+}
