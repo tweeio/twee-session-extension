@@ -12,14 +12,14 @@ module.exports.extension = function() {
     var app = twee.getApplication()
         , self = this;
 
-    if (!twee.getConfig('twee:options:session:enabled')) {
+    if (!twee.getConfig('extension:twee-session:enabled')) {
         return;
     }
 
     var session = require('express-session')
         , RedisStore = require('connect-redis')(session);
 
-    var sessionOptions = twee.getConfig('twee:options:session:options')
+    var sessionOptions = twee.getConfig('extension:twee-session:options')
         , redisClient = twee.getApplication().get('redis');
 
     if (!redisClient) {
@@ -40,12 +40,28 @@ module.exports.extension = function() {
 
 module.exports.dependencies = {
     // First we need to parse cookies
-    "Twee Twee Cookies": {
+    "Cookies": {
         "module": "twee-cookies-extension"
     },
 
     // And also redis client should be ready for use
-    "Twee Redis Cache": {
+    "Redis Cache": {
         "module": "twee-cache-extension/redis"
+    }
+};
+
+module.exports.configNamespace = 'twee-session';
+module.exports.config = {
+    "enabled": true,
+    "options": {
+        "secret": "expR3ssS3cR3TASD:Fwfk%$^$%&*&",
+        "cookie": {
+            "secure": false,
+            "maxAge": 999999999999,
+            "signed": true,
+            "path": "/"
+        },
+        "resave": true,
+        "saveUninitialized": true
     }
 };
