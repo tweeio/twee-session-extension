@@ -6,12 +6,36 @@
 [![npm](https://img.shields.io/npm/dm/localeval.svg)](https://github.com/tweeio/twee-framework)
 [![npm](https://img.shields.io/npm/l/express.svg)](https://github.com/tweeio/twee-framework)
 
-Session Middleware Extension for Twee.io Framework - MVC Framework for Node.js and io.js based on Express.js.
+Session Extension for Twee.io Framework - MVC Framework for Node.js and io.js based on Express.js.
 
-Session depends of `twee-cookies-extension` and `twee-cache-extension/redis`. No need to store sessions in another places. First of all because if this is disk - it is not useful and you don't test your application in real environment. The second reason is that memory does not save your sessions after server restarts. And the last reason is that redis does not have these problems and it is used in production. So you work in the same environment as it is production.
+Session depends of `twee-cookies-extension` and `twee-cache-extension/redis`. No need to store sessions in another places.
+First of all because if this is disk - it is not useful and you don't test your application in real environment.
+The second reason is that memory does not save your sessions after server restarts. And the last reason is that redis does not have these problems and it is used in production.
+So you work in the same environment as it is in production.
 
 To install it use this command:
 
 ```
 npm install twee-session-extension --save
+```
+
+
+Editing `package.json` of your application:
+
+```
+"dependencies": {
+    "twee-session-extension": "*"
+}
+```
+
+Turning extension `ON` in `application/configs/twee.js`:
+
+```
+module.exports = {
+    "extensions": {
+        "Session": {
+            "module": "twee-session-extension"
+        }
+    }
+};
 ```

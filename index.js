@@ -12,14 +12,14 @@ module.exports.extension = function() {
     var app = twee.getApplication()
         , self = this;
 
-    if (!twee.getConfig('extension:twee-session:enabled')) {
+    if (!twee.getConfig('twee:extension:twee-session:enabled')) {
         return;
     }
 
     var session = require('express-session')
         , RedisStore = require('connect-redis')(session);
 
-    var sessionOptions = twee.getConfig('extension:twee-session:options')
+    var sessionOptions = twee.getConfig('twee:extension:twee-session:options')
         , redisClient = twee.getApplication().get('redis');
 
     if (!redisClient) {
